@@ -43,19 +43,20 @@ bot.on('message', function(message){
 bot.on("message", async message => 
 {
   if (message.author.bot) return
-    let modlogChannel = message.guild.channels.find('name', 'mod-logs')
     const profanities = require('profanities');
-    let profEmbed = new Discord.RichEmbed()
-        .setColor('00FF00')
-        .setAuthor("The Realm | Spiff Security")
-        .setDescription("Warning Sent To ${message.author} about this message: ${message.content}") 
-        .setTimestamp()    
+    let modlogChannel = message.guild.channels.get(564544648748597248)
+    //let profEmbed = new Discord.RichEmbed()
+        //.setColor('00FF00')
+        //.setAuthor("The Realm | Spiff Security")
+        //.setDescription("Warning Sent To ${message.author} about this message: ${message.content}") 
+        //.setTimestamp()    
     for (x = 0; x < profanities.length; x++) 
     {
       if (message.content.toUpperCase() == profanities[x].toUpperCase())
         {
           message.author.send('Spiff Security, Swearing is not allowed here. Please refrain from swearing.')
-          message.delete()
+          message.delete() 
+          message.modlogChannel.send("test")
          return;
         }
     } 
