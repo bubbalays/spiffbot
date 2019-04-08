@@ -45,18 +45,21 @@ bot.on("message", async message =>
   if (message.author.bot) return
     const profanities = require('profanities');
     let modlogChannel = message.guild.channels.get(564544648748597248)
-    //let profEmbed = new Discord.RichEmbed()
-        //.setColor('00FF00')
-        //.setAuthor("The Realm | Spiff Security")
-        //.setDescription("Warning Sent To ${message.author} about this message: ${message.content}") 
-        //.setTimestamp()    
+        
     for (x = 0; x < profanities.length; x++) 
     {
       if (message.content.toUpperCase() == profanities[x].toUpperCase())
         {
           message.author.send('Spiff Security, Swearing is not allowed here. Please refrain from swearing.')
           message.delete() 
-          message.modlogChannel.send("Warning Sent To ${message.author} about this message: ${message.content}")
+          message.modlogChannel.send("", 
+          {
+          embed: new Discord.RichEmbed()
+        .setColor('00FF00')
+        .setAuthor("The Realm | Spiff Security")
+        .setDescription("Warning Sent To ${message.author} about this message: ${message.content}") 
+        .setTimestamp()
+          }
          return;
         }
     } 
@@ -67,8 +70,8 @@ bot.on("message", async message =>
       // Module Configuration Constructor
        antispam(bot, {
             warnBuffer: 3, // Maximum ammount of messages allowed to send in the interval time before getting warned.
-            maxBuffer: 10, // Maximum amount of messages allowed to send in the interval time before getting banned.
-            interval: 2000, // Amount of time in ms users can send the maxim amount of messages(maxBuffer) before getting banned. 
+            maxBuffer: 7, // Maximum amount of messages allowed to send in the interval time before getting banned.
+            interval: 1000, // Amount of time in ms users can send the maxim amount of messages(maxBuffer) before getting banned. 
             warningMessage: "please stop spamming!", // Message users receive when warned. (message starts with '@User, ' so you only need to input continue of it.) 
             banMessage: "has been banished from Lord Spiff's Kingdom for spamming!", // Message sent in chat when user is banned. (message starts with '@User, ' so you only need to input continue of it.) 
             maxDuplicatesWarning: 7,// Maximum amount of duplicate messages a user can send in a timespan before getting warned.
