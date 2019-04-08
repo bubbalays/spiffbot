@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const BOT_TOKEN = 'NTY0NDgzNjQxNDIyMzgxMDg3.XKoj9Q.7X6E9Ve-RfxZDuKvRxmPv4-6U6g';
 const antispam = require('discord-anti-spam');
 bot.login(process.env.BOT_TOKEN);
 
