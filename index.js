@@ -52,14 +52,7 @@ bot.on("message", async message =>
         {
           message.author.send('Spiff Security, Swearing is not allowed here. Please refrain from swearing.')
           message.delete() 
-          message.modlogChannel.send("", 
-          {
-          embed: new Discord.RichEmbed()
-        .setColor('00FF00')
-        .setAuthor("The Realm | Spiff Security")
-        .setDescription("Warning Sent To ${message.author} about this message: ${message.content}") 
-        .setTimestamp()
-          }
+          message.modlogChannel.send("message", "Test"
          return;
         }
     } 
