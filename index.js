@@ -56,7 +56,7 @@ bot.on("message", async message =>
         {
           message.author.send('Spiff Security, Swearing is not allowed here. Please refrain from swearing.')
           message.delete() 
-          message.modlogChannel.send("test")
+          message.modlogChannel.send("Warning Sent To ${message.author} about this message: ${message.content}")
          return;
         }
     } 
